@@ -30,9 +30,7 @@ local preproc_color = process_cyan
 local enum_member_color = "#f3ffc9"
 
 vim.api.nvim_set_hl(0, "LineNr", { fg = line_number_color })
-vim.api.nvim_set_hl(0, "CursorLineNr", { fg = cursor_line_number_color,
-    bg = cursor_background_color
-})
+vim.api.nvim_set_hl(0, "CursorLineNr", { fg = cursor_line_number_color, bg = cursor_background_color})
 -- Text
 vim.api.nvim_set_hl(0, "Normal", { fg = normal_color, bg = background_color })
 vim.api.nvim_set_hl(0, "Pmenu", { fg = normal_color, bg = background_color })
@@ -46,5 +44,9 @@ vim.api.nvim_set_hl(0, "Operator", { fg = operator_color })
 vim.api.nvim_set_hl(0, "Comment", { fg = comment_color })
 vim.api.nvim_set_hl(0, "CursorLine", { bg = cursor_background_color })
 vim.api.nvim_set_hl(0, "@lsp.type.enumMember", { fg = enum_member_color })
+
+if require("ibl") then
+  vim.api.nvim_set_hl(0, "@ibl.indent.char.1", {fg = comment_color})
+end
 
 vim.diagnostic.disable()

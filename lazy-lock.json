@@ -15,5 +15,5 @@
   "nvim-treesitter": { "branch": "master", "commit": "49f1b9a7efc794be143f7ddcd60ce18e8164a7f8" },
   "plenary.nvim": { "branch": "master", "commit": "4f71c0c4a196ceb656c824a70792f3df3ce6bb6d" },
   "telescope.nvim": { "branch": "master", "commit": "236083884cfe6c874e03e6cb4e7cb08809c1333c" },
-  "zen-mode.nvim": { "branch": "main", "commit": "78557d972b4bfbb7488e17b5703d25164ae64e6a" }
+  "vim-lion": { "branch": "master", "commit": "ce46593ecd60e6051fb6e4d3986d2fc9f5a618b1" }
 }

@@ -15,7 +15,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   -- One Liners
   "folke/neodev.nvim",
-
+  "tommcdo/vim-lion",
   -- Lualine
   {
     "nvim-lualine/lualine.nvim",
@@ -68,6 +68,12 @@ require("lazy").setup({
     opts = {},
     lazy = false,
   },
+  -- Block Lines
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    opts = {}
+  }
 })
 
 -- Setup comment
@@ -247,3 +253,13 @@ cmp.setup {
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>c", builtin.find_files, {})
 vim.keymap.set("n", "<leader>s", builtin.lsp_workspace_symbols, {})
+
+-- Setup Indent Blankline
+require("ibl").setup
+{
+  enabled = true,
+  indent = { char = "┆" },
+  scope = {
+    enabled = false,
+  }
+}
