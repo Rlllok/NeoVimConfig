@@ -22,7 +22,6 @@ require("lazy").setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = "jellybeans",
         componennts_seperatores = "|",
         section_separator = "",
       },
@@ -258,7 +257,8 @@ vim.keymap.set("n", "<leader>s", builtin.lsp_workspace_symbols, {})
 require("ibl").setup
 {
   enabled = true,
-  indent = { char = "┆" },
+  indent = { char = "╎" },
+
   scope = {
     enabled = false,
   }
