@@ -1,5 +1,7 @@
 -- Plugins
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+local a = 10;
+
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system {
     'git',
@@ -15,7 +17,9 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   -- One Liners
   "folke/neodev.nvim",
-  "tommcdo/vim-lion",
+  "echasnovski/mini.align",
+  "echasnovski/mini.comment",
+  "echasnovski/mini.bufremove",
   -- Lualine
   {
     "nvim-lualine/lualine.nvim",
@@ -61,12 +65,6 @@ require("lazy").setup({
     "nvim-telescope/telescope.nvim", tah = "0.1.5",
     dependencies = { "nvim-lua/plenary.nvim" }
   },
-  -- Comment
-  {
-    "numToStr/Comment.nvim",
-    opts = {},
-    lazy = false,
-  },
   -- Block Lines
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -74,13 +72,6 @@ require("lazy").setup({
     opts = {}
   }
 })
-
--- Setup comment
-require("Comment").setup {
-    toggler = {
-        line = "<leader>/",
-    },
-}
 
 -- Treesitter Setup
 vim.defer_fn(function()
@@ -263,3 +254,7 @@ require("ibl").setup
     enabled = false,
   }
 }
+
+require('mini.align').setup()
+require('mini.comment').setup()
+require('mini.bufremove').setup()

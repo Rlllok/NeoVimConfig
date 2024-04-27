@@ -34,6 +34,7 @@ vim.api.nvim_set_hl(0, "LineNr",               { fg = line_number_color })
 vim.api.nvim_set_hl(0, "CursorLineNr",         { fg = cursor_line_number_color, bg = cursor_background_color})
 -- Text
 vim.api.nvim_set_hl(0, "Normal",               { fg = normal_color, bg = background_color })
+vim.api.nvim_set_hl(0, "Visual",               { bg = "#595b5e"})
 vim.api.nvim_set_hl(0, "Pmenu",                { fg = normal_color, bg = background_color })
 vim.api.nvim_set_hl(0, "Identifier",           { fg = identifier_color })
 vim.api.nvim_set_hl(0, "Constant",             { fg = type_color })
@@ -45,9 +46,32 @@ vim.api.nvim_set_hl(0, "Operator",             { fg = operator_color })
 vim.api.nvim_set_hl(0, "Comment",              { fg = comment_color })
 vim.api.nvim_set_hl(0, "CursorLine",           { bg = cursor_background_color })
 vim.api.nvim_set_hl(0, "@lsp.type.enumMember", { fg = enum_member_color })
+vim.api.nvim_set_hl(0, "NonText",              { fg = cerise})
 
 if require("ibl") then
   vim.api.nvim_set_hl(0, "@ibl.indent.char.1", {fg = indentation_color})
 end
+
+require("lualine").setup
+{
+  options = {
+    theme = {
+      normal = {
+        a = {bg = normal_color, fg = black, gui = 'bold'},
+        b = {bg = indentation_color, fg = ceries},
+        c = {bg = indentation_color, fg = normal_color},
+      },
+      insert = {
+        a = {bg = periwinkle, fg = black, gui = 'bold'},
+      },
+      replace = {
+        a = {bg = cerise, fg = black, gui = 'bold'},
+      },
+      visual = {
+        a = {bg = earth_yellow, fg = black, gui = 'bold'},
+      }
+    }
+  }
+}
 
 vim.diagnostic.disable()
