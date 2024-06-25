@@ -5,3 +5,4 @@ if vim.g.neovide == true then
 end
 require("plugins")
 require("colors")
+require("autocmd")
