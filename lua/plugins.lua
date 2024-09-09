@@ -57,12 +57,30 @@ local on_attach = function(_, bufnr)
   nmap('gh', "<cmd> lua vim.lsp.buf.hover()<CR>", "Show hover")
 end
 
-
 require('mason').setup()
 require('mason-lspconfig').setup()
 
 local servers = {
-    clangd = {},
+  clangd = {
+    keys = {
+      { "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
+    },
+    capabilities = {},
+    cmd = {
+      "clangd",
+      "--background-index",
+      "--clang-tidy",
+      "--header-insertion=iwyu",
+      "--completion-style=detailed",
+      "--function-arg-placeholders",
+      "--fallback-style=llvm",
+    },
+    init_options = {
+      usePlaceholders = true,
+      completeUnimported = true,
+      clangdFileStatus = true,
+    },
+  },
 }
 
 require('neodev').setup()
