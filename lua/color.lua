@@ -4,7 +4,6 @@
 vim.o.cursorline = true
 vim.o.termguicolors = true
 
--- local black = "#1A1E23"
 local black        = "#121519"
 local green        = "#9db989"
 local earth_yellow = "#c69a60"
@@ -12,7 +11,7 @@ local cerise       = "#da4167"
 local process_cyan = "#01baef"
 local periwinkle   = "#C9DDFF"
 
-local background_color         = "#100d10"--black
+local background_color         = "#1e201e"--black
 local indentation_color        = "#2a2c30"
 local cursor_background_color  = "#282E36"
 local line_number_color        = "#999999"
@@ -27,6 +26,8 @@ local operator_color           = cerise
 local function_color           = "#dc403d"
 local preproc_color            = "#207aaf"
 local enum_member_color        = "#f3ffc9"
+
+vim.api.nvim_set_hl(0, "Cursor",                    { bg = green })
 
 vim.api.nvim_set_hl(0, "LineNr",                    { fg = line_number_color })
 vim.api.nvim_set_hl(0, "CursorLineNr",              { fg = cursor_line_number_color, bg = cursor_background_color})
@@ -49,7 +50,7 @@ vim.api.nvim_set_hl(0, "@punctuation.bracket.cpp",  { fg = normal_color})
 vim.api.nvim_set_hl(0, "@punctuation.delimiter.cpp",{ fg = normal_color})
 vim.api.nvim_set_hl(0, "@lsp.type.parameter.cpp",   { fg = normal_color })
 
-vim.api.nvim_set_hl(0, '@lsp.type.comment.cpp', {})
+-- vim.api.nvim_set_hl(0, '@lsp.type.comment.cpp', {})
 vim.api.nvim_set_hl(0, '@constructor.cpp', {})
 vim.api.nvim_set_hl(0, "@number.cpp", {})
 vim.api.nvim_set_hl(0, "@keyword.repeat.cpp",       {})

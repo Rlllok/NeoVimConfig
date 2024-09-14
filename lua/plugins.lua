@@ -38,6 +38,11 @@ require("lazy").setup({
       { "j-hui/fidget.nvim", opts = {} },
     },
   },
+
+  {
+    "nvim-telescope/telescope.nvim", tag = "0.1.8",
+    dependencies = { "nvim-lua/plenary.nvim" }
+  }
 })
 
 -- Configure LSP
@@ -62,19 +67,9 @@ require('mason-lspconfig').setup()
 
 local servers = {
   clangd = {
-    keys = {
-      { "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
-    },
     capabilities = {},
-    cmd = {
-      "clangd",
-      "--background-index",
-      "--clang-tidy",
-      "--header-insertion=iwyu",
-      "--completion-style=detailed",
-      "--function-arg-placeholders",
-      "--fallback-style=llvm",
-    },
+    cmd = { "clangd" },
+    single_file_support = true,
     init_options = {
       usePlaceholders = true,
       completeUnimported = true,
