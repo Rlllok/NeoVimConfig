@@ -14,6 +14,11 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   {
+    "nvim-lualine/lualine.nvim",
+    dependencies = {"nvim-tree/nvim-web-devicons"}
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function () 
@@ -95,3 +100,5 @@ mason_lspconfig.setup_handlers {
     }
   end,
 }
+
+require("lualine").setup()
