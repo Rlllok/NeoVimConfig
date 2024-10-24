@@ -10,6 +10,8 @@ vim.opt.expandtab = true
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 
-vim.opt.shell = "powershell.exe"
+--vim.opt.shell = "powershell.exe"
 
 vim.opt.splitright = true
+
+vim.diagnostic.disable()

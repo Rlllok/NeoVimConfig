@@ -19,13 +19,25 @@ require("lazy").setup({
   },
 
   {
+    "sainnhe/everforest",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.everforest_enable_italic = false
+      vim.g.everforest_background = "medium"
+      vim.g.everforest_better_performance = 1
+      vim.cmd.colorscheme("everforest")
+    end
+  };
+
+  {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     config = function () 
       local configs = require("nvim-treesitter.configs")
 
       configs.setup({
-          ensure_installed = { "c", "cpp", "lua" },
+          ensure_installed = { "c", "cpp", "lua", "glsl" },
           sync_install = false,
           highlight = {
             enable = true,
@@ -72,18 +84,18 @@ require('mason-lspconfig').setup()
 
 local servers = {
   clangd = {
-    capabilities = {},
+    capabilities = {
+    },
     cmd = { "clangd" },
     single_file_support = true,
-    init_options = {
-      usePlaceholders = true,
-      completeUnimported = true,
-      clangdFileStatus = true,
-    },
+    --root_dir = require("lspconfig.util").root_pattern(".clangd")
   },
 }
 
 require('neodev').setup()
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 local mason_lspconfig = require 'mason-lspconfig'
 
@@ -94,6 +106,7 @@ mason_lspconfig.setup {
 mason_lspconfig.setup_handlers {
   function(server_name)
     require('lspconfig')[server_name].setup {
+      capabilities = capabilities,
       on_attach = on_attach,
       settings = servers[server_name],
       filetypes = (servers[server_name] or {}).filetypes,
