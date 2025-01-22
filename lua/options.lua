@@ -8,7 +8,8 @@ vim.wo.relativenumber = true
 
 vim.o.scrolloff = 5
 
-vim.diagnostic.config = {
+vim.diagnostic.config({  -- https://neovim.io/doc/user/diagnostic.html
+  virtual_text = false,
   signs = false,
   underline = false,
-}
+})
